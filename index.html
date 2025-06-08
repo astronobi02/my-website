@@ -1,23 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      text-align: center;
-      padding: 50px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio - Your Name</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;family=Inter&amp;display=swap" rel="stylesheet" />
+<style>
+  /* Dark-themed CSS Variables */
+  :root {
+    --color-bg: #121212;
+    --color-bg-card: #1e1e1e;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #a1a1aa;
+    --color-primary: #f9f9f9;
+    --color-primary-hover: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.8);
+    --border-radius: 0.75rem;
+    --transition-speed: 0.3s;
+    --max-width: 1200px;
+  }
+
+  /* Reset and basics */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color var(--transition-speed),
+      color var(--transition-speed);
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+  }
+  a:hover,
+  a:focus {
+    color: var(--color-primary-hover);
+    outline: none;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    border-radius: var(--border-radius);
+    user-select: none;
+  }
+
+  /* Layout containers */
+  .container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    width: 100%;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg-card);
+    box-shadow: 0 1px 6px var(--color-shadow);
+    z-index: 999;
+    padding: 1rem 0;
+    backdrop-filter: saturate(180%) blur(12px);
+  }
+  nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+  }
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: -0.025em;
+    user-select: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .nav-links a {
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width var(--transition-speed);
+    border-radius: 1px;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 6rem 0 7rem;
+    text-align: center;
+    color: var(--color-primary);
+  }
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+    margin: 0 0 1rem;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--color-text-secondary);
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 6px 12px rgba(255 255 255 / 0.2);
+    user-select: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  /* Section spacing */
+  section {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Section headers */
+  h2.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* Card style */
+  .card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px var(--color-shadow);
+    padding: 2rem;
+    transition:
+      box-shadow var(--transition-speed),
+      background-color var(--transition-speed);
+    color: var(--color-text-secondary);
+  }
+  .card:hover,
+  .card:focus-within {
+    box-shadow: 0 12px 24px rgba(255 255 255 / 0.15);
+    outline: none;
+  }
+
+  /* About Section */
+  .about-content {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 1rem;
+  }
+  .skill {
+    background-color: #2a2a2a;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-primary);
+    box-shadow: 0 2px 6px rgba(255 255 255 / 0.1);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    user-select: none;
+  }
+  .skill:hover,
+  .skill:focus {
+    background-color: #3a3a3a;
+    outline: none;
+    cursor: default;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .project-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 20px var(--color-shadow);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition:
+      box-shadow var(--transition-speed),
+      background-color var(--transition-speed),
+      color var(--transition-speed);
+  }
+  .project-card:hover,
+  .project-card:focus-within {
+    box-shadow: 0 12px 28px rgba(255 255 255 / 0.18);
+    outline: none;
+  }
+  .project-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+  .project-desc {
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .project-link {
+    align-self: flex-start;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius);
+    transition:
+      background-color var(--transition-speed),
+      color var(--transition-speed);
+    user-select: none;
+  }
+  .project-link:hover,
+  .project-link:focus {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    outline: none;
+    text-decoration: none;
+  }
+
+  /* Contact Section */
+  .contact-form {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: var(--color-bg-card);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px var(--color-shadow);
+    transition:
+      box-shadow var(--transition-speed),
+      background-color var(--transition-speed),
+      color var(--transition-speed);
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .form-control {
+    width: 100%;
+    padding: 1rem 0.75rem 0.25rem 0.75rem;
+    font-size: 1rem;
+    border: 1.5px solid #444;
+    border-radius: 0.5rem;
+    background: none;
+    color: var(--color-primary);
+    outline-offset: 2px;
+    transition: border-color var(--transition-speed), color var(--transition-speed);
+  }
+  .form-control:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
+  label {
+    position: absolute;
+    top: 1rem;
+    left: 0.85rem;
+    font-size: 1rem;
+    color: #6b7280;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    background-color: var(--color-bg-card);
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+  }
+  .form-control:focus + label,
+  .form-control:not(:placeholder-shown) + label {
+    font-size: 0.75rem;
+    top: 0.25rem;
+    color: var(--color-primary);
+  }
+  button[type="submit"] {
+    display: block;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 6px 12px rgba(255 255 255 / 0.2);
+    user-select: none;
+    width: 100%;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 2.75rem;
+      padding: 0 1rem;
     }
-    h1 {
-      color: #333;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
-  <p>This is my first website hosted with GitHub Pages.</p>
+  <header role="banner">
+    <nav class="container" aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="Portfolio Home">YourName</a>
+      <div class="nav-links">
+        <a href="#about" tabindex="0">About</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#projects" tabindex="0">Projects</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" role="region" aria-labelledby="hero-heading">
+      <div class="container">
+        <h1 id="hero-heading">Hi, I'm Your Name<br />A Passionate Web Developer</h1>
+        <p>Building beautiful and performant web experiences using modern technologies.</p>
+        <button class="btn-primary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Contact Me">Contact Me</button>
+      </div>
+    </section>
+
+    <section id="about" role="region" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">About Me</h2>
+      <div class="about-content card" tabindex="0">
+        <p>
+          I'm a dedicated web developer with expertise in creating responsive, user-friendly websites and applications.
+          I specialize in modern JavaScript frameworks, CSS, and UI/UX design principles to build elegant digital experiences.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" role="region" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+      <div class="skills-grid" tabindex="0" aria-label="List of skills">
+        <div class="skill" tabindex="0">JavaScript</div>
+        <div class="skill" tabindex="0">React</div>
+        <div class="skill" tabindex="0">CSS3</div>
+        <div class="skill" tabindex="0">HTML5</div>
+        <div class="skill" tabindex="0">Git</div>
+        <div class="skill" tabindex="0">Node.js</div>
+        <div class="skill" tabindex="0">TypeScript</div>
+        <div class="skill" tabindex="0">Tailwind CSS</div>
+      </div>
+    </section>
+
+    <section id="projects" role="region" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="0" aria-label="Project One">
+          <h3 class="project-title">Project One</h3>
+          <p class="project-desc">A responsive web app that enhances productivity through task management and collaboration tools.</p>
+          <a href="#" class="project-link" aria-label="View project one details" tabindex="0">View Project</a>
+        </article>
+        <article class="project-card" tabindex="0" aria-label="Project Two">
+          <h3 class="project-title">Project Two</h3>
+          <p class="project-desc">An e-commerce website with dynamic product filtering and seamless checkout experience.</p>
+          <a href="#" class="project-link" aria-label="View project two details" tabindex="0">View Project</a>
+        </article>
+        <article class="project-card" tabindex="0" aria-label="Project Three">
+          <h3 class="project-title">Project Three</h3>
+          <p class="project-desc">A custom blog platform featuring markdown support and real-time commenting.</p>
+          <a href="#" class="project-link" aria-label="View project three details" tabindex="0">View Project</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" role="region" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
+      <form class="contact-form" novalidate aria-describedby="contact-instructions">
+        <div id="contact-instructions" class="sr-only">
+          All fields are required. Please enter your name, email and your message to contact me.
+        </div>
+        <div class="form-group">
+          <input type="text" id="name" class="form-control" name="name" placeholder=" " required aria-required="true" aria-describedby="name-error" />
+          <label for="name">Name</label>
+          <span id="name-error" class="sr-only" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" class="form-control" name="email" placeholder=" " required aria-required="true" aria-describedby="email-error" />
+          <label for="email">Email</label>
+          <span id="email-error" class="sr-only" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <textarea id="message" class="form-control" name="message" rows="4" placeholder=" " required aria-required="true" aria-describedby="message-error"></textarea>
+          <label for="message">Message</label>
+          <span id="message-error" class="sr-only" aria-live="polite"></span>
+        </div>
+        <button type="submit" aria-label="Send message">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      &copy; 2024 Your Name. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Simple form validation
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const nameInput = form.name;
+      const emailInput = form.email;
+      const messageInput = form.message;
+
+      // Clear previous errors
+      ['name', 'email', 'message'].forEach(id => {
+        const errorSpan = document.getElementById(id + '-error');
+        errorSpan.textContent = '';
+      });
+
+      // Validate name
+      if (!nameInput.value.trim()) {
+        const errorSpan = document.getElementById('name-error');
+        errorSpan.textContent = 'Please enter your name.';
+        valid = false;
+        nameInput.focus();
+        return;
+      }
+
+      // Validate email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim()) {
+        const errorSpan = document.getElementById('email-error');
+        errorSpan.textContent = 'Please enter your email.';
+        valid = false;
+        emailInput.focus();
+        return;
+      } else if (!emailPattern.test(emailInput.value.trim())) {
+        const errorSpan = document.getElementById('email-error');
+        errorSpan.textContent = 'Please enter a valid email address.';
+        valid = false;
+        emailInput.focus();
+        return;
+      }
+
+      // Validate message
+      if (!messageInput.value.trim()) {
+        const errorSpan = document.getElementById('message-error');
+        errorSpan.textContent = 'Please enter a message.';
+        valid = false;
+        messageInput.focus();
+        return;
+      }
+
+      if (valid) {
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      }
+    });
+  </script>
+
+  <style>
+    /* Screen-reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
 </body>
 </html>
+
