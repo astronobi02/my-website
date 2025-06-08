@@ -1,9 +1,12 @@
+
+
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio - Your Name</title>
+<title>Portfolio - Susan Pokhrel</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;family=Inter&amp;display=swap" rel="stylesheet" />
 <style>
   /* Dark-themed CSS Variables */
@@ -136,6 +139,14 @@
     max-width: 600px;
     margin: 0 auto 2.5rem;
     color: var(--color-text-secondary);
+  }
+  .hero img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(249, 249, 249, 0.3);
   }
   .btn-primary {
     background-color: var(--color-primary);
@@ -279,273 +290,88 @@
     user-select: none;
   }
   .project-link:hover,
-  .project-link:focus {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    outline: none;
-    text-decoration: none;
-  }
+ 
+```
 
-  /* Contact Section */
-  .contact-form {
-    max-width: 480px;
-    margin: 0 auto;
-    background-color: var(--color-bg-card);
-    padding: 2rem 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 8px 16px var(--color-shadow);
-    transition:
-      box-shadow var(--transition-speed),
-      background-color var(--transition-speed),
-      color var(--transition-speed);
-  }
-  .form-group {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  .form-control {
-    width: 100%;
-    padding: 1rem 0.75rem 0.25rem 0.75rem;
-    font-size: 1rem;
-    border: 1.5px solid #444;
-    border-radius: 0.5rem;
-    background: none;
-    color: var(--color-primary);
-    outline-offset: 2px;
-    transition: border-color var(--transition-speed), color var(--transition-speed);
-  }
-  .form-control:focus {
-    border-color: var(--color-primary);
-    outline: none;
-  }
-  label {
-    position: absolute;
-    top: 1rem;
-    left: 0.85rem;
-    font-size: 1rem;
-    color: #6b7280;
-    pointer-events: none;
-    transition: all 0.25s ease;
-    background-color: var(--color-bg-card);
-    padding: 0 0.25rem;
-    border-radius: 0.25rem;
-  }
-  .form-control:focus + label,
-  .form-control:not(:placeholder-shown) + label {
-    font-size: 0.75rem;
-    top: 0.25rem;
-    color: var(--color-primary);
-  }
-  button[type="submit"] {
-    display: block;
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 1rem 2rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-    box-shadow: 0 6px 12px rgba(255 255 255 / 0.2);
-    user-select: none;
-    width: 100%;
-  }
-  button[type="submit"]:hover,
-  button[type="submit"]:focus {
-    background-color: var(--color-primary-hover);
-    transform: scale(1.05);
-    outline: none;
-  }
 
-  /* Footer */
-  footer {
-    padding: 2rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    user-select: none;
-  }
+.project-link\:focus {
+background-color: var(--color-primary);
+color: var(--color-bg);
+outline: none;
+}
 
-  /* Responsive */
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 2.75rem;
-      padding: 0 1rem;
-    }
-  }
-</style>
+/\* Footer \*/
+footer {
+text-align: center;
+padding: 2rem 1rem;
+font-size: 0.9rem;
+color: var(--color-text-secondary);
+border-top: 1px solid #333;
+user-select: none;
+} </style>
+
 </head>
 <body>
-  <header role="banner">
-    <nav class="container" aria-label="Primary navigation">
-      <a href="#" class="logo" aria-label="Portfolio Home">YourName</a>
-      <div class="nav-links">
-        <a href="#about" tabindex="0">About</a>
-        <a href="#skills" tabindex="0">Skills</a>
-        <a href="#projects" tabindex="0">Projects</a>
-        <a href="#contact" tabindex="0">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" role="region" aria-labelledby="hero-heading">
-      <div class="container">
-        <h1 id="hero-heading">Hi, I'm Your Name<br />A Passionate Web Developer</h1>
-        <p>Building beautiful and performant web experiences using modern technologies.</p>
-        <button class="btn-primary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Contact Me">Contact Me</button>
-      </div>
-    </section>
-
-    <section id="about" role="region" aria-labelledby="about-title">
-      <h2 class="section-title" id="about-title">About Me</h2>
-      <div class="about-content card" tabindex="0">
-        <p>
-          I'm a dedicated web developer with expertise in creating responsive, user-friendly websites and applications.
-          I specialize in modern JavaScript frameworks, CSS, and UI/UX design principles to build elegant digital experiences.
-        </p>
-      </div>
-    </section>
-
-    <section id="skills" role="region" aria-labelledby="skills-title">
-      <h2 class="section-title" id="skills-title">Skills</h2>
-      <div class="skills-grid" tabindex="0" aria-label="List of skills">
-        <div class="skill" tabindex="0">JavaScript</div>
-        <div class="skill" tabindex="0">React</div>
-        <div class="skill" tabindex="0">CSS3</div>
-        <div class="skill" tabindex="0">HTML5</div>
-        <div class="skill" tabindex="0">Git</div>
-        <div class="skill" tabindex="0">Node.js</div>
-        <div class="skill" tabindex="0">TypeScript</div>
-        <div class="skill" tabindex="0">Tailwind CSS</div>
-      </div>
-    </section>
-
-    <section id="projects" role="region" aria-labelledby="projects-title">
-      <h2 class="section-title" id="projects-title">Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card" tabindex="0" aria-label="Project One">
-          <h3 class="project-title">Project One</h3>
-          <p class="project-desc">A responsive web app that enhances productivity through task management and collaboration tools.</p>
-          <a href="#" class="project-link" aria-label="View project one details" tabindex="0">View Project</a>
-        </article>
-        <article class="project-card" tabindex="0" aria-label="Project Two">
-          <h3 class="project-title">Project Two</h3>
-          <p class="project-desc">An e-commerce website with dynamic product filtering and seamless checkout experience.</p>
-          <a href="#" class="project-link" aria-label="View project two details" tabindex="0">View Project</a>
-        </article>
-        <article class="project-card" tabindex="0" aria-label="Project Three">
-          <h3 class="project-title">Project Three</h3>
-          <p class="project-desc">A custom blog platform featuring markdown support and real-time commenting.</p>
-          <a href="#" class="project-link" aria-label="View project three details" tabindex="0">View Project</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" role="region" aria-labelledby="contact-title">
-      <h2 class="section-title" id="contact-title">Contact Me</h2>
-      <form class="contact-form" novalidate aria-describedby="contact-instructions">
-        <div id="contact-instructions" class="sr-only">
-          All fields are required. Please enter your name, email and your message to contact me.
-        </div>
-        <div class="form-group">
-          <input type="text" id="name" class="form-control" name="name" placeholder=" " required aria-required="true" aria-describedby="name-error" />
-          <label for="name">Name</label>
-          <span id="name-error" class="sr-only" aria-live="polite"></span>
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" class="form-control" name="email" placeholder=" " required aria-required="true" aria-describedby="email-error" />
-          <label for="email">Email</label>
-          <span id="email-error" class="sr-only" aria-live="polite"></span>
-        </div>
-        <div class="form-group">
-          <textarea id="message" class="form-control" name="message" rows="4" placeholder=" " required aria-required="true" aria-describedby="message-error"></textarea>
-          <label for="message">Message</label>
-          <span id="message-error" class="sr-only" aria-live="polite"></span>
-        </div>
-        <button type="submit" aria-label="Send message">Send Message</button>
-      </form>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    <div class="container">
-      &copy; 2024 Your Name. All rights reserved.
+<header>
+  <nav>
+    <div class="logo">Susan Pokhrel</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <script>
-    // Simple form validation
-    const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let valid = true;
+<main>
+  <section class="hero" aria-label="Introduction">
+    <img src="https://i.pravatar.cc/150?img=12" alt="Photo of Susan Pokhrel" />
+    <h1>Hello, I'm Susan Pokhrel</h1>
+    <p>Currently learning C and Python. Hobby: Reading webnovels.</p>
+    <button class="btn-primary" onclick="alert('Thank you for visiting!')">Say Hi 👋</button>
+  </section>
 
-      const nameInput = form.name;
-      const emailInput = form.email;
-      const messageInput = form.message;
+  <section id="about" class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <p>I'm Susan Pokhrel, passionate about programming and continuous learning. I am currently diving deep into C and Python programming languages while enjoying reading webnovels in my free time.</p>
+    </div>
+  </section>
 
-      // Clear previous errors
-      ['name', 'email', 'message'].forEach(id => {
-        const errorSpan = document.getElementById(id + '-error');
-        errorSpan.textContent = '';
-      });
+  <section id="skills" class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid" role="list">
+      <div class="skill" role="listitem">C</div>
+      <div class="skill" role="listitem">Python</div>
+      <div class="skill" role="listitem">JavaScript</div>
+      <div class="skill" role="listitem">React</div>
+    </div>
+  </section>
 
-      // Validate name
-      if (!nameInput.value.trim()) {
-        const errorSpan = document.getElementById('name-error');
-        errorSpan.textContent = 'Please enter your name.';
-        valid = false;
-        nameInput.focus();
-        return;
-      }
+  <section id="projects" class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Sample Project</h3>
+        <p class="project-desc">This is a placeholder project to showcase the portfolio layout. Replace it with your own projects.</p>
+        <a href="#" class="project-link" aria-label="Visit Sample Project">View Project</a>
+      </article>
+    </div>
+  </section>
 
-      // Validate email
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim()) {
-        const errorSpan = document.getElementById('email-error');
-        errorSpan.textContent = 'Please enter your email.';
-        valid = false;
-        emailInput.focus();
-        return;
-      } else if (!emailPattern.test(emailInput.value.trim())) {
-        const errorSpan = document.getElementById('email-error');
-        errorSpan.textContent = 'Please enter a valid email address.';
-        valid = false;
-        emailInput.focus();
-        return;
-      }
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <p style="text-align:center;">Feel free to reach out to me via email at <a href="mailto:susan@example.com">susan@example.com</a>.</p>
+  </section>
+</main>
 
-      // Validate message
-      if (!messageInput.value.trim()) {
-        const errorSpan = document.getElementById('message-error');
-        errorSpan.textContent = 'Please enter a message.';
-        valid = false;
-        messageInput.focus();
-        return;
-      }
+<footer>
+  <p>© 2025 Susan Pokhrel. All rights reserved.</p>
+</footer>
 
-      if (valid) {
-        alert('Thank you for your message! I will get back to you soon.');
-        form.reset();
-      }
-    });
-  </script>
-
-  <style>
-    /* Screen-reader only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-  </style>
 </body>
 </html>
-
+ 
+ 
